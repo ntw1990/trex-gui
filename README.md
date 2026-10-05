@@ -1,18 +1,12 @@
-
-
-#os : ubuntu
-#step 1 : First, copy the "defualt_trex_khosrow"  file to the following location on the destination server where T-Rex is installed: 
-#/root/defualt_trex_khosrow/
-#step 2 : T-Rex must be positioned along this path:
-#/root/v3.05          ###I used version 3.05.
-
-
-
-
-
 # TRex GUI Controller
 
 A PyQt5-based graphical interface for managing and controlling the TRex Traffic Generator over SSH.
+
+## Server Prerequisites
+
+- Operating System: Ubuntu
+- Copy the `defualt_trex_khosrow` folder to `/root/defualt_trex_khosrow/` on the target server
+- TRex must be installed at `/root/v3.05`
 
 ## Features
 
@@ -21,20 +15,43 @@ A PyQt5-based graphical interface for managing and controlling the TRex Traffic 
 - Connect to a remote server via SSH
 - Real-time output display with terminal-like formatting
 - Dark theme for better readability
-- Configurable rate multiplier, duration, cores, and more
 
 ## Requirements
 
 - Python 3.8 or higher
-- PyQt5 - GUI framework
-- paramiko - SSH communication
-- sshpass - system tool for password-based SSH (required by `base_tab.py`)
+- PyQt5
+- paramiko
+- sshpass
 - A TRex installation on the target server
 
 ## Installation
 
-### 1. Clone the repository
+    git clone https://github.com/ntw1990/trex-gui.git
+    cd trex-gui
+    pip install -r requirements.txt
+    sudo apt install sshpass
 
-```bash
-git clone https://github.com/khosrow-esteghlali/trex-gui.git
-cd trex-gui
+## Usage
+
+    python main.py
+
+Then:
+
+1. Open the file menu and click Connect to Server
+2. Enter host, username, password, and TRex version
+3. Select the desired tab and fill in the parameters
+4. Click the green Start TRex button
+
+## Project Structure
+
+- main.py - Entry point
+- base_tab.py - Shared base class
+- stateless_tab.py - Stateless mode
+- stateful_tab.py - Stateful mode
+- advanced_stateful_tab.py - Advanced Stateful mode
+- generator_tab.py - YAML generator
+- dialogs.py - SSH and file dialogs
+
+## License
+
+MIT License - see the LICENSE file for details.
